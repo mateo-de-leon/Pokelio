@@ -1,0 +1,190 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #24243e, #0c0b14, #24243e);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-form,
+.register-form {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 320px;
+    text-align: center;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 0;
+}
+
+.fade-in {
+    opacity: 1;
+    z-index: 1;
+}
+
+.fade-out {
+    opacity: 0;
+    z-index: 0;
+}
+
+.login-form {
+    height: 300px;
+}
+
+.register-form {
+    height: 400px;
+}
+
+.login-form::before,
+.register-form::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 21px;
+    padding: 1px;
+    background: linear-gradient(45deg, #8a2be2, #b36ff2, #8a2be2);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.login-form h2,
+.register-form h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+.login-form input,
+.register-form input {
+    width: 94%;
+    margin: 10px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    outline: none;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.login-form input::placeholder,
+.register-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.login-form button,
+.register-form button {
+    margin-top: 15px;
+    width: 80%;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.login-form button:hover,
+.register-form button:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.register-remember-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.go-to-register {
+    color: white;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.go-to-register:hover {
+    color: #8274cf;
+}
+
+.remember-me-lbl {
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none; 
+}
+
+.remember-me-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.remember-me-input:hover {
+  border-color: #b36ff2;
+  box-shadow: 0 0 3px rgba(179, 111, 242, 0.5);
+}
+
+.remember-me-input:checked {
+  background: linear-gradient(135deg, #8a2be2, #b36ff2);
+  border-color: transparent;
+}
+
+.remember-me-input:checked::after {
+  content: "✔";
+  font-size: 9px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -58%);
+}
+
+.remember-me-input:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(179, 111, 242, 0.6);
+}
